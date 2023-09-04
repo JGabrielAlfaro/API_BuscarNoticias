@@ -21,11 +21,11 @@ const NoticiasProvider = ({children}) => {
             //  const url = `https://newsapi.org/v2/top-headlines?country=us&category=${categoria}&apiKey=${import.meta.env.VITE_API_KEY}`
             // const {data} = await axios(url);
             
-            const respuesta = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${categoria}&apiKey=${import.meta.env.VITE_API_KEY}`)
+            const respuesta = await fetch(`${import.meta.env.VITE_URL_NEWS}?country=us&category=${categoria}&apikey=${import.meta.env.VITE_API_KEY_NEWS}`)
             const data = await respuesta.json();
          
             setNoticias(data.articles)
-            setTotalNoticias(data.totalResults)
+            setTotalNoticias(data.totalResults) //totalArticles totalResults
             setPagina(1) //Por si hay un cambio de categoria
         }
         consultarAPI();
@@ -38,7 +38,7 @@ const NoticiasProvider = ({children}) => {
           // const url = `https://newsapi.org/v2/top-headlines?country=us&page=${pagina}&category=${categoria}&apiKey=${import.meta.env.VITE_API_KEY}`
           // const {data} = await axios(url);
 
-          const respuesta = await fetch(`https://newsapi.org/v2/top-headlines?country=us&page=${pagina}&category=${categoria}&apiKey=${import.meta.env.VITE_API_KEY}`)
+          const respuesta = await fetch(`${import.meta.env.VITE_URL_NEWS}?country=us&page=${pagina}&category=${categoria}&apikey=${import.meta.env.VITE_API_KEY_NEWS}`)
           const data = await respuesta.json();
          
           setNoticias(data.articles)
