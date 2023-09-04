@@ -5,7 +5,7 @@ import Noticia from "./Noticia";
 const ListadoNoticias = () => {
     const {noticias,totalNoticias,handleChangePagina,pagina} = useNoticias();
     const totalPaginas = Math.ceil(totalNoticias / 20);//redondea hacia arriba, la cantidad maxima que trae son 20 por lo queda estatico
-
+   
 
   return (
     <>
@@ -19,8 +19,8 @@ const ListadoNoticias = () => {
         Últimas Noticias
       </Typography>
       <Grid container spacing={2}>
-        {noticias.map( (noticia,id) => 
-           noticia.urlToImage && (
+        {noticias?.map( (noticia,id) => 
+           noticia?.urlToImage && (
               <Noticia noticia={noticia} key={id}/>
            )
           )}

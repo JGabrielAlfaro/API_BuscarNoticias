@@ -40,7 +40,7 @@ const NoticiasProvider = ({children}) => {
 
           const respuesta = await fetch(`https://newsapi.org/v2/top-headlines?country=us&page=${pagina}&category=${categoria}&apiKey=${import.meta.env.VITE_API_KEY}`)
           const data = await respuesta.json();
-  
+         
           setNoticias(data.articles)
           setTotalNoticias(data.totalResults)
       }
